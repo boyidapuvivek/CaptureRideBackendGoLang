@@ -1,17 +1,15 @@
 package main
 
 import (
+	"CaptureRideBackendGoLang/routes"
+
 	"github.com/gin-gonic/gin"
-	"net/http"
 )
 
 func main() {
 	router := gin.Default()
 
-	//get function
-	router.GET("/ping", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{"message": "ping"})
-	})
+	routes.SetupRoutes(router)
 
 	router.Run(":8080")
 }
